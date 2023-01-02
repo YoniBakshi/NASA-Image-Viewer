@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>NASA SpaceBook</title>
+    <!--Made with love by Mutiullah Samim -->
+
+    <!--Fontawesome CDN-->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!--Custom styles-->
+
+    <title>A Page using our REST API</title>
+    <link rel='stylesheet' href='public/stylesheets/style.css'/>
+
+</head>
+
+<body>
+<div class="container-fluid px-5" id="main-container">
+
+    <div class="container-fluid px-5">
+        <div class="row g-0">
+            <div class="p-2 mb-3 bg-info rounded-5 px-5">
+                <div class="container-fluid py-2 ">
+                    <h1 class="text-center display-5 fw-bold"> SpaceBook </h1>
+                    <p class="text-center fs-4">Are you ready for your intergalactic space journey?</p>
+                    <div class="text-center d-none" id="dateChoice">
+                        <label for="currentDate">Pick a starting date and let's investigate :</label> <br>
+                        <input type="date" id="currentDate" name="date-search">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-0">
+            <div class="col">
+                <div class="loginBox " id="loginBox">
+                    <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px" alt="#">
+                    <h3>Welcome traveler! <br> Sign in here</h3>
+                    <form method="post" id="user-name-input">
+                        <input type="text" id="uname" name="Username" placeholder="Username" required>
+                        <input type="submit" id="login" value="Login">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-fluid px-5 py-5 h-10  mx-auto d-none" id="page">
+        <div id="imgCard">
+
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="imgModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="col-8">
+                            <h1 class="modal-title fs-5" id="imgModalLabel">Modal title</h1>
+                        </div>
+                        <div class="col-3">
+                            <h1 class="modal-title fs-5" id="modal-date">Modal date</h1>
+                        </div>
+
+                        <button type="button" class="col-1 btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                                <div id="media-type"></div>
+                                <br><br>
+                                <div id="data-section"></div>
+                            </div>
+                            <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                <div class="d-flex justify-content-center">
+                                    <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+                                        <div class="card-body p-4 mb-4">
+                                            <div class="form-outline">
+                                                <form action="/resources" method="post" id="commentPost">
+                                                    <input type="text" id="user-input" class="form-control mb-4"
+                                                           placeholder="Type your comment..."/>
+                                                    <div id="inputSizeError" class="d-none">
+                                                        <p style="color:red;"> Input must be between 1-128 letters. </p>
+                                                    </div>
+                                                </form>
+                                                <div id="comments-data">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+<script src="public/javascripts/funcs.js"></script>
+</body>
+
+</html>
