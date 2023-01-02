@@ -5,10 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>NASA SpaceBook</title>
-    <!--Made with love by Mutiullah Samim -->
-
-    <!--Fontawesome CDN-->
+    <title>NASA SpaceBook - Ex05</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -21,25 +18,26 @@
 
 <body>
 <div class="container-fluid px-5" id="main-container">
-
+    <!-- Top Title Page -->
     <div class="container-fluid px-5">
         <div class="row g-0 d-none" id="header-container">
-            <div class="p-2 mb-3 bg-info rounded-5 px-5">
+            <div class="p-2 mb-3 bg-transparent rounded-5 px-5">
                 <div class="container-fluid py-2">
-                    <h1 class="text-center display-5 fw-bold"> SpaceBook </h1>
-                    <p class="text-center fs-4">Are you ready for your intergalactic space journey?</p>
-                    <div class="text-center" id="dateChoice">
-                        <label for="currentDate">Pick a starting date and let's investigate :</label> <br>
+                    <h1 class="text-center text-white text-decoration-underline display-5 fw-bold"> NASA's SpaceBook </h1>
+                    <p class="text-center text-white fs-4"> Are you ready for your intergalactic space journey? </p>
+                    <div class="text-center text-light fs-4" id="dateChoice">
+                        <label for="currentDate"> Pick a starting date and let's investigate : </label> <br>
                         <input type="date" id="currentDate" name="date-search">
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Welcome Page - Login User Box -->
         <div class="row g-0">
             <div class="col">
                 <div class="loginBox " id="loginBox">
-                    <img class="user" src="./images/LoginIcon.png" height="100px" width="100px" alt="#">
+                    <img class="user" src="./images/LoginIcon.png" height="250px" width="250px" alt="#">
                     <h3>Welcome traveler! <br> Sign in here</h3>
                     <form method="post" id="user-name-input">
                         <input type="text" id="uname" name="Username" placeholder="Username" required>
@@ -47,33 +45,29 @@
                     </form>
                 </div>
             </div>
-
         </div>
-
     </div>
-
+    <!-- Container Load Page Of Card Images -->
     <div class="container-fluid px-5 py-5 h-10  mx-auto d-none" id="page">
         <div id="imgCard">
 
         </div>
 
-        <!-- Modal -->
+        <!-- Modal Of Clicked Image -->
         <div class="modal fade" id="imgModal" tabindex="-1" aria-labelledby="imgModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-
                         <div class="col-8">
                             <h1 class="modal-title fs-5" id="imgModalLabel">Modal title</h1>
                         </div>
                         <div class="col-3">
                             <h1 class="modal-title fs-5" id="modal-date">Modal date</h1>
                         </div>
-
                         <button type="button" class="col-1 btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                     </div>
-
+                    <!-- Data of Card Image : Media (Image/Video), Explanation, Comments, Add Comment -->
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
@@ -85,14 +79,16 @@
                                 <div class="d-flex justify-content-center">
                                     <div class="card shadow-0 border" style="background-color: #f0f2f5;">
                                         <div class="card-body p-4 mb-4">
+                                            <!-- Form - User Can Submit a Comment -->
                                             <div class="form-outline">
                                                 <form action="/resources" method="post" id="commentPost">
                                                     <input type="text" id="user-input" class="form-control mb-4"
-                                                           placeholder="Type your comment..."/>
+                                                           placeholder="Type your comment...">
                                                     <div id="inputSizeError" class="d-none">
                                                         <p style="color:red;"> Input must be between 1-128 letters. </p>
                                                     </div>
                                                 </form>
+                                                <!-- Published Comments -->
                                                 <div id="comments-data">
                                                 </div>
                                             </div>
