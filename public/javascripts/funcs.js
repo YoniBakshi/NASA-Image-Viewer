@@ -121,6 +121,7 @@
         if (!isValidDate(date.getNewDate().end) || !isValidDate(date.getNewDate().start))
             document.getElementById("main-container").innerHTML = `<h1 class="text-bg-light">Error: Date is not defined</h1>`;
 
+
         fetch(`${APIURL}?api_key=${APIKEY}&start_date=${date.getNewDate().start}&end_date=${date.getNewDate().end}`)
             .then(function (response) {
                 return response.json();
