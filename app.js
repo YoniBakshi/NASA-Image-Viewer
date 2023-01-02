@@ -7,6 +7,8 @@ var indexRouter = require('./routes');
 
 var app = express();
 
+//app.use(express.static('public'));
+app.use('/images', express.static('images'));
 app.use(logger('dev'));
 
 app.use(express.json());

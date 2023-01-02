@@ -57,11 +57,12 @@
          */
         let pickedDate, prior2Dates, clickedImg;
         function initDate() {
-            creatToggle("dateChoice");      //Display pick a date box
+            creatToggle("header-container");      //Display pick a date box
             creatToggle("page");            //Display feed page
             creatToggle("loginBox");        //Hide login box
             pickedDate = new Date()
             prior2Dates = new Date()
+            document.getElementById('currentDate').valueAsDate = pickedDate
             prior2Dates.setDate(prior2Dates.getDate() - 2);
             pickedDate = `${pickedDate.getFullYear()}-${pickedDate.getMonth() + 1}-${pickedDate.getDate()}`
             prior2Dates = `${prior2Dates.getFullYear()}-${prior2Dates.getMonth() + 1}-${prior2Dates.getDate()}`
@@ -214,9 +215,9 @@
     }
 
     /**
-     *
-     * @param currData = data of current date which it loads at the moment,  // TODO
-     * @returns {string}
+     * Loop
+     * @param currData = data of current date which it loads at the moment
+     * @returns {string} string HTML modify card images according to received data
      */
     const createHtmlImgInfo = (currData) => {
         let start, end, moreBtn, mediaElem, cardImg;
@@ -240,8 +241,8 @@
 
     const getMediaType = (currData, currStyle) => {
         return (currData['media_type'] === 'image') ?
-            `<img src=${currData.url} class="card-img-top img-fluid" style="${currStyle}" alt="#">` :
-            `<iframe src=${currData.url} class="card-img-top img-fluid" style="${currStyle}"></iframe>`;
+            `<img src=${currData.url} class="card-img-top " style="${currStyle}" alt="#">` :
+            `<iframe src=${currData.url} class="card-img-top " style="${currStyle}"></iframe>`;
     }
 
     const createHtmlCard = (currData, moreBtn, mediaElem, cop)=>{
@@ -339,6 +340,9 @@
 
     function delPost(event) {
         event.preventDefault();
+        clearInterval(intrevalId);
+        getDataPostedComments()
+        intrevalId = setInterval(getDataPostedComments, 15000);
         const deleteItem = event.target.id.replace("del-", "");
         // Validation: Make sure deleteItem is a non-empty string
         if (!deleteItem || typeof deleteItem !== 'string') {
@@ -358,8 +362,8 @@
     }
 
     function validatorName() {
-        const inpUname = document.getElementById("uname"); // TODO CHANGE LENGTH TO 24 ???
-        if (!(inpUname.value.trim().length <= 5) || inpUname.value.trim().includes(' ') || !(/^[A-Za-z0-9]*$/.test(inpUname.value.trim()))) {
+        const inpUname = document.getElementById("uname");
+        if (!(/^[A-Za-z0-9]{1,10}$/.test(inpUname.value.trim()))) {
             inpUname.setCustomValidity("Please match the requested format.");
             return false;
         }
@@ -369,8 +373,8 @@
         }
     }
     const validatorInput = (input) =>{
-        input.preventDefault();//TODO CHANGE LENGTH TO 128
-        if (!(input.target.value.trim().length > 0 && input.target.value.trim().length < 10)) {
+        input.preventDefault();
+        if (!(input.target.value.trim().length > 0 && input.target.value.trim().length < 128)) {
             document.getElementById("inputSizeError").classList.remove('d-none');
             return false;
         }
@@ -379,6 +383,6 @@
     }
     const fixDate = (date) =>{
         let dateComponents = (date).split("-");
-        return `${dateComponents[2]}-${dateComponents[1]}-${dateComponents[0]}`;
+        return `${dateComponents[1]}-${dateComponents[2]}-${dateComponents[0]}`;
     }
 })()
