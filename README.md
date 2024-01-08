@@ -2,9 +2,9 @@
 # Ex-05 REST API
 
 # Authors:
-Yehonatan Bakshi , ID : 308077668 , Email : yehonatanba@edu.hac.ac.il
+Yehonatan Bakshi
 
-Hila Saadon , ID : 208405217 , Email : hilasaa@edu.hac.ac.il
+Hila Saadon
 
 README :
 - In this Express project we've created a social website using NASA's media.
